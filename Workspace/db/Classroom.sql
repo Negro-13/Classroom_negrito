@@ -29,7 +29,13 @@ CREATE TABLE Usuarios (
     Contraseña VARCHAR(50),
 );
 
-CREATE TABLE Materias(
-    Codigo_materia VARCHAR(25),
-    FOREIGN KEY DNI REFERENCES Profesores(DNI)
+CREATE TABLE Materias_alumno(
+    FOREIGN KEY Cod_materia REFERENCES Clases
+    FOREIGN KEY docente_acargo REFERENCES Profesores(DNI)
+);
+
+CREATE TABLE Clases(
+    Cod_materia VARCHAR(25) PRIMARY KEY,
+    Nombre_materia VARCHAR(50),
+    FOREIGN KEY docente_acargo REFERENCES Profesores(DNI)
 );
